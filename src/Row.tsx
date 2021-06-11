@@ -47,10 +47,11 @@ function Row<R, SR>(
     className
   );
 
+  console.log('row render');
   useEffect(() => {
-    console.log('mount');
+    console.log('row mount');
     return () => {
-      console.log('unmount');
+      console.log('row unmount');
     };
   }, []);
 

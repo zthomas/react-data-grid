@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useEffect } from 'react';
 import type { RefAttributes } from 'react';
 import { css } from '@linaria/core';
 
@@ -84,6 +84,14 @@ function Cell<R, SR>({
   function handleRowChange(newRow: R) {
     onRowChange(rowIdx, newRow);
   }
+
+  console.log('cell render');
+  useEffect(() => {
+    console.log('cell mount');
+    return () => {
+      console.log('cell unmount');
+    };
+  }, []);
 
   return (
     <div
