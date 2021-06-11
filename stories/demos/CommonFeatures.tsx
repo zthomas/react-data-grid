@@ -312,6 +312,15 @@ export function CommonFeatures() {
   }, []);
   const columns = useMemo(() => getColumns(countries), [countries]);
 
+  function shuffle() {
+    setRows((rows) => {
+      const newRows = [...rows];
+      const firstRow = newRows.shift();
+      newRows.splice(5, 0, firstRow);
+      return newRows;
+    });
+  }
+
   const summaryRows = useMemo(() => {
     const summaryRow: SummaryRow = {
       id: 'total_0',
@@ -360,6 +369,7 @@ export function CommonFeatures() {
   return (
     <>
       <div className={toolbarClassname}>
+        <button onClick={shuffle}>shuffle</button>
         <ExportButton onExport={() => exportToCsv(gridElement, 'CommonFeatures.csv')}>
           Export to CSV
         </ExportButton>
