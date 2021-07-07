@@ -97,7 +97,7 @@ function Cell<R, SR>({
       className={className}
       style={getCellStyle(column, colSpan)}
       onClick={handleClick}
-      onDoubleClick={handleDoubleClick}
+      onMouseUp={handleDoubleClick}
       onContextMenu={handleContextMenu}
       {...props}
     >
